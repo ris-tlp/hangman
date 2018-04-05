@@ -34,4 +34,9 @@ public class HangmanMainTest {
         int result = HangmanMain.anotherCall();
         Assert.assertEquals(47,result);
     }
+    @Test
+    public void test_inputWordTest(){
+        int result = HangmanMain.getWord();
+        Assert.assertEquals();
+    }
 }
