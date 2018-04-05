@@ -22,7 +22,6 @@ public class HangmanMainTest {
 
     }
 
-
     @Test
     public void test_isCharacterValid_True() {
 
