@@ -4,7 +4,7 @@ public class HangmanMain {
 
     public static void main(String[] args) {
 
-        String word = getWord();
+        String word = "";
 
         while ("".equals(word)) {
             word = getWord();
@@ -50,7 +50,7 @@ public class HangmanMain {
 
     }
 
-    public static String getWord() {
+    static String getWord() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Player 1: please enter you word. ");
         System.out.println("You may only enter alphabets (a-z, A-Z) and your word may contain 3-10 characters.");
@@ -76,4 +76,28 @@ public class HangmanMain {
             return "";
         }
     }
+
+    static void displayDashesForPlayerTwo(String word) {
+
+        for (int i = 0; i < word.length(); i ++) {
+            if(word.charAt(i) == '_')
+                System.out.print("_ ");
+            else
+                System.out.print(word.charAt(i) + " ");
+        }
+
+    }
+
+    static String updateDashesForPlayerTwo(char guess, String solution, String guessSoFar) {
+
+        char[] solutionCharArray = solution.toCharArray();
+        char[] guessSoFarCharArray = guessSoFar.toCharArray();
+        for (int i = 0; i < solutionCharArray.length; i++) {
+            if(Character.toUpperCase(guess) == Character.toUpperCase(solutionCharArray[i])) {
+                guessSoFarCharArray[i] = Character.toUpperCase(guess);
+            }
+        }
+        return new String(guessSoFarCharArray);
+    }
+
 }

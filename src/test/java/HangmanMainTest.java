@@ -86,4 +86,27 @@ public class HangmanMainTest {
         String wordDup = "punctuation";
         Assert.assertFalse(HangmanMain.isInputValid(word,wordDup));
     }
+
+    @Test
+    public void test_displayDashesForPlayerTwo() {
+        HangmanMain.displayDashesForPlayerTwo("Apple");
+    }
+
+    @Test
+    public void test_updateDashesForPlayerTwo() {
+        String solution = "APPLE";
+        String guessSoFar = "A___E";
+        String result = HangmanMain.updateDashesForPlayerTwo('P', solution, guessSoFar);
+        Assert.assertEquals("APP_E", result);
+        HangmanMain.displayDashesForPlayerTwo(result);
+    }
+
+    @Test
+    public void test_updateDashesForPlayerTwo_characterGuessedInLowerCase() {
+        String solution = "APPLE";
+        String guessSoFar = "A___E";
+        String result = HangmanMain.updateDashesForPlayerTwo('p', solution, guessSoFar);
+        Assert.assertEquals("APP_E", result);
+        HangmanMain.displayDashesForPlayerTwo(result);
+    }
 }
