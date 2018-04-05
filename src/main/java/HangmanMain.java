@@ -56,8 +56,6 @@ public class HangmanMain {
         System.out.println("You may only enter alphabets (a-z, A-Z) and your word may contain 3-10 characters.");
         System.out.println("Type 0 to exit the program.");
 
-
-
         String word = scan.nextLine();
 
         if ("0".equals(word))
@@ -70,8 +68,6 @@ public class HangmanMain {
 
 
         boolean isValid = isInputValid(word, wordDuplicate);
-
-
 
         if (isValid == true) {
             System.out.println("Thank you, it is player 2's turn now!");

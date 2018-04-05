@@ -71,4 +71,19 @@ public class HangmanMainTest {
         Assert.assertFalse(HangmanMain.isInputValid(word, reenterWord));
     }
 
+
+    @Test
+    public void test_isInputValid_Length2(){
+        String word = "as";
+        String wordDup = "as";
+        Assert.assertFalse(HangmanMain.isInputValid(word,wordDup));
+
+    }
+
+    @Test
+    public void getTest_isInputValid_Length11(){
+        String word = "punctuation";
+        String wordDup = "punctuation";
+        Assert.assertFalse(HangmanMain.isInputValid(word,wordDup));
+    }
 }
