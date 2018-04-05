@@ -6,7 +6,7 @@ public class HangmanMain {
 
         String word = getWord();
 
-        if ("".equals(word)) {
+        while ("".equals(word)) {
             word = getWord();
         }
 
@@ -73,7 +73,6 @@ public class HangmanMain {
             System.out.println("Thank you, it is player 2's turn now!");
             return word;
         } else {
-            System.out.println("Your word is invalid, please try again.");
             return "";
         }
     }
