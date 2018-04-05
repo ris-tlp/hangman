@@ -22,21 +22,4 @@ public class HangmanMainTest {
 
     }
 
-    @Test
-    public void test_doSomething() {
-        String result = HangmanMain.doSomething("test");
-        Assert.assertEquals("Function call 1 with test", result);
-    }
-
-    //write test for anotherCall
-    @Test
-    public void test_anotherCall() {
-        int result = HangmanMain.anotherCall();
-        Assert.assertEquals(47,result);
-    }
-    @Test
-    public void test_inputWordTest(){
-        int result = HangmanMain.getWord();
-        Assert.assertEquals();
-    }
 }
