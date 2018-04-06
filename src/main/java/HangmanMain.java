@@ -13,7 +13,7 @@ public class HangmanMain {
         int validTurns = 6;
 
         String solution = word.toLowerCase();
-//        System.out.println(solution);
+        System.out.println(solution);
 
         int length = solution.length();
 
@@ -48,8 +48,16 @@ public class HangmanMain {
         // checking if the string solution contains the character input by player two
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
 
+            System.out.println(guessSoFar + " guess so far");
+
             if (solution.indexOf(P2input) >= 0) {
-                while (guessSoFar.indexOf(P2input) >= 0) {
+
+//                System.out.println(guessSoFar);
+//                System.out.println(P2input);
+                System.out.println(guessSoFar.indexOf(P2input) + " index of p2input in guesssofar");
+
+                while (guessSoFar.toLowerCase().indexOf(P2input) >= 0) {
+
                     System.out.println("You have already guessed this character, please try another one.");
                     P2input = scan.next().charAt(0);
                     P2input = Character.toLowerCase(P2input);
