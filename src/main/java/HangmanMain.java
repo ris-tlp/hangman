@@ -3,14 +3,99 @@ import java.util.Scanner;
 public class HangmanMain {
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 
         String word = "";
 
         while ("".equals(word)) {
             word = getWord();
         }
+        int validTurns = 6;
+
+        String solution = word.toLowerCase();
+//        System.out.println(solution);
+//
+        int length = solution.length();
+
+        String guessSoFar = "";
+
+        //setting the character array guess with the same number of underscores as the length of solution
+        for (int i = 0; i < length; i++){
+            guessSoFar += '_';
+
+        }
+
+        displayDashesForPlayerTwo(guessSoFar);
+
+
+        System.out.println("\n\nPlayer 2, you can only enter one character and only the alphabet (a-z, A-Z).");
+        System.out.println("Please enter your character.");
+        displayDashesForPlayerTwo(guessSoFar);
+
+        char P2input = scan.next().charAt(0);
+        P2input = Character.toLowerCase(P2input);
+
+        //performing character validity check
+        boolean state = isCharacterValid(P2input);
+//        System.out.println(state);
+        while (state==false) {
+            System.out.println("The character you have entered is invalid. Please try again.");
+            P2input = scan.next().charAt(0);
+            P2input = Character.toLowerCase(P2input);
+            state = isCharacterValid(P2input);
+        }
+
+        // checking if the string solution contains the character input by player two
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+
+//            System.out.println(guessSoFar + " guess so far");
+
+            if (solution.indexOf(P2input) >= 0) {
+
+//                System.out.println(guessSoFar);
+//                System.out.println(P2input);
+//                System.out.println(guessSoFar.indexOf(P2input) + " index of p2input in guesssofar");
+
+                while (guessSoFar.toLowerCase().indexOf(P2input) >= 0) {
+
+                    System.out.println("You have already guessed this character, please try another one.");
+                    P2input = scan.next().charAt(0);
+                    P2input = Character.toLowerCase(P2input);
+                }
+
+                guessSoFar = updateDashesForPlayerTwo(P2input, solution, guessSoFar);
+                displayDashesForPlayerTwo(guessSoFar);
+
+                P2input = scan.next().charAt(0);
+                P2input = Character.toLowerCase(P2input);
+
+            }
+
+            else {
+
+                System.out.println("This character is not present in the word given by Player one. Please try again.");
+                validTurns--;
+                System.out.println("You have " + validTurns + " chances remaining.");
+
+                if (validTurns == 0) {
+                    System.out.println("You are out of turns! Better luck next time.");
+                    System.out.println("GAME OVER!");
+                    System.exit(0);
+                }
+
+                P2input = scan.next().charAt(0);
+
+            }
+        }
+
+
+
+
 
     }
+
+
+
 
     static boolean isInputValid( String word, String reenterWord ) {
 
@@ -57,6 +142,11 @@ public class HangmanMain {
         System.out.println("Type 0 to exit the program.");
 
         String word = scan.nextLine();
+        if(!isWordValid(word) && !"0".equals(word)){
+            return "";
+        }
+
+
 
         if ("0".equals(word))
         {
@@ -79,7 +169,7 @@ public class HangmanMain {
 
     static void displayDashesForPlayerTwo(String word) {
 
-        for (int i = 0; i < word.length(); i ++) {
+        for (int i = 0; i < word.length(); i++) {
             if(word.charAt(i) == '_')
                 System.out.print("_ ");
             else
@@ -99,5 +189,6 @@ public class HangmanMain {
         }
         return new String(guessSoFarCharArray);
     }
+
 
 }
