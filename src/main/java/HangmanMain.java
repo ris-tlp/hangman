@@ -133,7 +133,7 @@ public class HangmanMain {
         System.out.println("Type 0 to exit the program.");
 
         String word = scan.nextLine();
-        if(!isWordValid(word)){
+        if(!isWordValid(word) && !"0".equals(word)){
             return "";
         }
 
