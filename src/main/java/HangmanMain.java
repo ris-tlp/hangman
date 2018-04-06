@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import static jdk.nashorn.internal.objects.NativeString.toLowerCase;
-
 public class HangmanMain {
 
     public static void main(String[] args) {
@@ -14,7 +12,7 @@ public class HangmanMain {
         }
         int validTurns = 6;
 
-        String solution = toLowerCase(word);
+        String solution = word.toLowerCase();
 //        System.out.println(solution);
 
         int length = solution.length();
