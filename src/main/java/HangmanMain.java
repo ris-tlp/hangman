@@ -47,7 +47,7 @@ public class HangmanMain {
         }
 
         // checking if the string solution contains the character input by player two
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
 
             if (solution.indexOf(P2input) >= 0) {
                 while (guessSoFar.indexOf(P2input) >= 0) {
