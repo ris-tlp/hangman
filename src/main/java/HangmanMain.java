@@ -25,9 +25,10 @@ public class HangmanMain {
 
         }
 
-        System.out.println(guessSoFar);
+        displayDashesForPlayerTwo(guessSoFar);
 
-        System.out.println("Player 2, you can only enter one character and only the alphabet (a-z, A-Z).");
+
+        System.out.println("\n\nPlayer 2, you can only enter one character and only the alphabet (a-z, A-Z).");
         System.out.println("Please enter your character.");
         displayDashesForPlayerTwo(guessSoFar);
 
@@ -136,6 +137,8 @@ public class HangmanMain {
         if(!isWordValid(word) && !"0".equals(word)){
             return "";
         }
+
+
 
         if ("0".equals(word))
         {
