@@ -109,4 +109,5 @@ public class HangmanMainTest {
         Assert.assertEquals("APP_E", result);
         HangmanMain.displayDashesForPlayerTwo(result);
     }
+
 }
