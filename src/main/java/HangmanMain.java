@@ -50,6 +50,7 @@ public class HangmanMain {
 
             gameResult(guessSoFar,solution);
 
+            System.out.println("Please enter your next character.");
 
 
 
@@ -68,8 +69,9 @@ public class HangmanMain {
                 if (gameResult(guessSoFar,solution)) {
                     P2input = scan.next().charAt(0);
                     P2input = Character.toLowerCase(P2input);
-                }
 
+
+                }
 
             }
 
