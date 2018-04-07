@@ -66,6 +66,7 @@ public class HangmanMain {
                 guessSoFar = updateDashesForPlayerTwo(P2input, solution, guessSoFar);
                 displayDashesForPlayerTwo(guessSoFar);
 
+
                 P2input = scan.next().charAt(0);
                 P2input = Character.toLowerCase(P2input);
 
@@ -75,6 +76,7 @@ public class HangmanMain {
 
                 System.out.println("This character is not present in the word given by Player one. Please try again.");
                 validTurns--;
+                printHangman(validTurns);
                 System.out.println("You have " + validTurns + " chances remaining.");
 
                 if (validTurns == 0) {
@@ -190,5 +192,30 @@ public class HangmanMain {
         return new String(guessSoFarCharArray);
     }
 
+    static void printHangman(int chancesLeft) {
+
+        if(chancesLeft == 6) {
+            PrintHangman.sixChancesLeft();
+        }
+        else if(chancesLeft == 5) {
+            PrintHangman.fiveChancesLeft();
+        }
+        else if(chancesLeft == 4) {
+            PrintHangman.fourChancesLeft();
+        }
+        else if(chancesLeft == 3) {
+            PrintHangman.threeChancesLeft();
+        }
+        else if(chancesLeft == 2) {
+            PrintHangman.twoChancesLeft();
+        }
+        else if(chancesLeft == 1) {
+            PrintHangman.oneChanceLeft();
+        }
+        else {
+            PrintHangman.youDoneSon();
+        }
+
+    }
 
 }
