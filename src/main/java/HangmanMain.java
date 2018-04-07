@@ -141,6 +141,14 @@ public class HangmanMain {
         System.out.println("Type 0 to exit the program.");
 
         String word = scan.nextLine();
+
+        while ( (word.length() < 3 || word.length() > 10 )) {
+            System.out.println("The word be between 3 to 10 characters long.");
+            word = scan.nextLine();
+
+        }
+
+
         if(!isWordValid(word) && !"0".equals(word)){
             return "";
         }
