@@ -48,13 +48,13 @@ public class HangmanMain {
         // checking if the string solution contains the character input by player two
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
 
-//            System.out.println(guessSoFar + " guess so far");
+            gameResult(guessSoFar,solution);
+
+            System.out.println("Please enter your next character.");
+
+
 
             if (solution.indexOf(P2input) >= 0) {
-
-//                System.out.println(guessSoFar);
-//                System.out.println(P2input);
-//                System.out.println(guessSoFar.indexOf(P2input) + " index of p2input in guesssofar");
 
                 while (guessSoFar.toLowerCase().indexOf(P2input) >= 0) {
 
@@ -66,9 +66,10 @@ public class HangmanMain {
                 guessSoFar = updateDashesForPlayerTwo(P2input, solution, guessSoFar);
                 displayDashesForPlayerTwo(guessSoFar);
 
-
-                P2input = scan.next().charAt(0);
-                P2input = Character.toLowerCase(P2input);
+                if (gameResult(guessSoFar,solution)) {
+                    P2input = scan.next().charAt(0);
+                    P2input = Character.toLowerCase(P2input);
+                }
 
             }
 
@@ -89,10 +90,6 @@ public class HangmanMain {
 
             }
         }
-
-
-
-
 
     }
 
@@ -217,5 +214,16 @@ public class HangmanMain {
         }
 
     }
+
+    static boolean gameResult(String guessSoFar, String solution) {
+
+        if (guessSoFar.toLowerCase().equals(solution)) {
+            System.out.println("\nCongratulations Player two! You guessed the word right!");
+            System.exit(0);
+        }
+            return true;
+
+    }
+
 
 }
